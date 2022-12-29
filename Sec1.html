@@ -64,9 +64,26 @@
     }
     //-----------------------------------------
     function decimal(){
-        var num = getElementById("num").valueAsNumber;
-        var num1 = getElementById("num1").valueAsNumber;
-
+        var n1 = document.getElementById("num").valueAsNumber;
+        var d = document.getElementById("num1").valueAsNumber;
+        var str= ""; j=1;
+        if(isNaN(n1)||isNaN(d)){
+            alert("Invalid Input");
+        }
+        else{
+        if(Number.isInteger(n1)){
+            for(var i =0;i<d;i++){
+                var j = "0";
+                str =str.concat(j);
+                console.log(j);
+             }
+             document.getElementById("result").innerHTML = n1 + "."+str;
+        }else{
+            str1 = n1.toString();
+            str1 = str1.slice(0, (str1.indexOf(".")) + d + 1); 
+            document.getElementById("result").innerHTML = str1;    
+        }
+    }
     }
 
     </script>
