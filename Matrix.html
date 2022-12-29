@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix</title>
+</head>
+<body>
+    <h2>Matrix Multiplication</h2><br>
+<label>Enter rows :</label>
+<input type="number" id = "row"/><br>
+<br/>
+<label>Enter columns :</label>
+<input type="number" id = "col"/><br>
+<br/>
+<label>Enter matrix 1 values :</label><br>
+<input type="number" id = "m1"/>
+<br/>
+<label>Enter matrix 2 values :</label><br>
+<input type="number" id = "m2"/>
+<button onclick="add()">Add</button><br>
+<br/>
+<div id = "show"></div>
+<br/>
+<div>Result show After Adding all inputs</div><br/>
+<div id = "result"></div>
+<br/>
+<hr>
+
+<script>
+    
+    var arr1 =new Array();     //one-d array for getting input
+    var arr2= new Array();
+    var m1=new Array();       ///2-d array to make matrix by using one-d array
+    var m2=new Array();
+    var mul = new Array();
+    
+    var x=0; y=0;
+    const add=()=>{
+        var r = document.getElementById("row").valueAsNumber;
+         var c = document.getElementById("col").valueAsNumber;
+        var N =r*c;
+        var val = document.getElementById("m1").valueAsNumber;
+        var val1 = document.getElementById("m2").valueAsNumber;
+        if(isNaN(r)||isNaN(c)){
+            alert("enter row and col");
+        }else{
+        if(isNaN(val)||isNaN(val1)){
+            alert("fill both matrix index");
+        }
+        else{
+            if(x<N){
+            arr1[x]=val;
+            x++;
+        }
+        if(y<N){
+            arr2[y]=val1;
+            y++;
+        }else{
+            alert("matrices  full");
+        }
+        console.log(arr2);
+        console.log(arr1);
+    }
+    console.log(matrix(arr1,arr2,r,c));
+     
+    }
+}
+
+    const matrix=(arr1,arr2,r,c)=>{
+        N=r*c;
+        for(var i = 0; i<r;i++){
+        m1[i] = new Array(r);
+        m2[i] = new Array(r);
+    }
+    var k=0;
+    for (var i = 0; i < r; i++) {
+        for (var j = 0; j < c; j++) {
+            m1[i][j] = arr1[k];
+            m2[i][j] = arr2[k];
+            k++;
+        }
+    }
+    document.getElementById("show").innerHTML="Matrix 1: "+ m1 +"<br>Matrix 2: " +m2;
+
+    for (let k = 0; k < r; k++){
+          mul[k] = new Array(r);
+      }
+      for (var a = 0; a < r; a++) {
+        for (var b = 0; b < c; b++) {
+            mul[a][b] = 0;
+            for (var d = 0; d < r; d++){
+                mul[a][b] += m1[a][d] * m2[d][b];
+            }
+            
+
+        }
+    }
+    document.getElementById("result").innerHTML=mul;
+
+    }
+
+    
+   
+</script>
+    
+</body>
+</html>
