@@ -64,7 +64,23 @@
     //-------------------------------------------------------------------
     const cal=()=>{
         var date = document.getElementById("date").value;
+        if(date==""){
+            alert("Enter Date of Birth");
+        }
+        else{
         console.log(date);
+        var t_year=2022;
+        var t_month=12;
+        var t_day=30;
+        var year = Number(date.substring(0,4));
+        var month = Number(date.substring(5,7));
+        var day = Number(date.substring(8));
+        var b_year = t_year-year;
+        var b_month = Math.abs(t_month- month);
+        var b_day = Math.abs(t_day - day);
+        document.getElementById("age").innerHTML="Your age = "+b_year + " years "+b_month+" months "+b_day+" days ";
+        }
+      
     }
 </script>
     
