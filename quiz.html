@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<h2>Age In Days</h2><br/>
+<div id = "age"></div>
+<hr>
+<!-- ------------------------------------------------ -->
+<h2>Palindrome Or Not</h2><br>
+<label>Enter String:</label><br>
+<input type="text" id = "str"/><br>
+<br/>
+<button onclick="palindrome()">Check</button><br>
+<br/>
+<div id = "show"></div>
+<br/>
+<hr>
+<!-- --------------------------------- -->
+<h2>Decimal Place</h2><br>
+<label>Enter a  Number:</label><br>
+<input type="number" id = "num"/><br>
+<br/>
+<label>Decimal place:</label><br>
+<input type="number" id = "num1"/><br>
+<br/>
+
+<button onclick="decimal()">Check</button><br>
+<br/>
+<div id = "result"></div>
+<br/>
+<hr>
+
+<body>
+    <script>
+        var age = 25;
+        var days = 365*age;
+        document.getElementById("age").innerHTML = "Age "+ age+ " in days = "+days;
+        //----------------------------------
+        function palindrome(){
+        var str=document.getElementById("str").value;
+        if(str==""){
+            alert("Enter a string");
+        }
+        else{
+        var j = str.length;
+        var len = parseInt(j/2);
+        var a1=0;
+        for(var i = 0; i < len;i++){
+            if(str[i]==str[j-i-1]){
+                a1++;
+            }   
+        }
+        if(a1==len){
+                document.getElementById("show").innerHTML = "Palindrome";
+            }
+            else{
+                document.getElementById("show").innerHTML = "Not Palindrome";
+            }       
+        }
+    }
+    //-----------------------------------------
+    function decimal(){
+        var num = getElementById("num").valueAsNumber;
+        var num1 = getElementById("num1").valueAsNumber;
+
+    }
+
+    </script>
+</body>
+</html>
